@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Sudoku</h1>
+    <p class="subtitle">Fill every row, column, and box with 1-9.</p>
+  </header>
+
+  <main>
+    <div class="game-info">
+      <span id="status-message" class="status-message"></span>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <div class="controls">
+      <button id="new-game-btn" type="button">New Game</button>
+      <button id="check-btn" type="button">Check Puzzle</button>
+      <button id="reset-btn" type="button">Reset</button>
+    </div>
+  </main>
+</body>
+</html>
