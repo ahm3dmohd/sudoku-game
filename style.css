@@ -1,0 +1,202 @@
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f5f7;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+main {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  font-size: 2.25rem;
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* ---------- Status message ---------- */
+.game-info {
+  min-height: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.status-message {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.status-message.success {
+  color: #2e7d32;
+}
+
+.status-message.error {
+  color: #c62828;
+}
+
+/* ---------- Board ---------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  background-color: #fff;
+  border: 3px solid #222;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Cells ---------- */
+.cell {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: center;
+  color: #1a56db; /* user-entered numbers */
+  background-color: #fff;
+
+  outline: none;
+  transition: background-color 0.15s ease;
+}
+
+/* Text input specific resets, in case cells are <input> elements */
+input.cell {
+  border-radius: 0;
+  caret-color: transparent;
+}
+
+input.cell::selection {
+  background: transparent;
+}
+
+/* Thick 3x3 box borders */
+.cell.border-right-thick {
+  border-right: 2.5px solid #222;
+}
+
+.cell.border-bottom-thick {
+  border-bottom: 2.5px solid #222;
+}
+
+/* ---------- Cell states ---------- */
+.cell.given {
+  color: #1a1a1a;
+  font-weight: 700;
+  background-color: #f7f7f7;
+  cursor: default;
+}
+
+.cell.selected {
+  background-color: #cfe3fc;
+}
+
+.cell.highlighted {
+  background-color: #eaf2fd;
+}
+
+.cell.invalid {
+  background-color: #fbe4e4;
+  color: #c62828;
+}
+
+.cell:not(.given):hover {
+  background-color: #f0f6ff;
+  cursor: pointer;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls button {
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #1a56db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.controls button:hover {
+  background-color: #1543ad;
+}
+
+.controls button:active {
+  transform: scale(0.97);
+}
+
+#reset-btn {
+  background-color: #e2e5e9;
+  color: #333;
+}
+
+#reset-btn:hover {
+  background-color: #cfd3d8;
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  margin-top: 2.5rem;
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .cell {
+    font-size: 1.1rem;
+  }
+
+  .controls button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
