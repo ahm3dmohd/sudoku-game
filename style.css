@@ -139,6 +139,47 @@ input.cell::selection {
   cursor: pointer;
 }
 
+/* ---------- Number pad ---------- */
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 450px;
+  margin-top: 1.50rem;
+}
+
+.num-btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.6rem 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #d5d9df;
+  color: #1a56db;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.num-btn:hover {
+  background-color: #eaf2fd;
+}
+
+.num-btn:active {
+  transform: scale(0.96);
+}
+
+.num-btn.clear-btn {
+  grid-column: span 1;
+  background-color: #e2e5e9;
+  color: #333;
+}
+
+.num-btn.clear-btn:hover {
+  background-color: #cfd3d8;
+}
+
 /* ---------- Controls ---------- */
 .controls {
   display: flex;
