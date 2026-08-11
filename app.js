@@ -67,7 +67,7 @@ function renderBoard() {
       cell.dataset.row = row;
       cell.dataset.col = col;
 
-      const value = puzzle[col][row];
+      const value = puzzle[row][col];
 
       if (value !== 0) {
         cell.textContent = value;
@@ -102,15 +102,17 @@ renderBoard();
 
 function checkPuzzle() {
   const cells = board.querySelectorAll(".cell");
+  console.log(cells)
+  console.log(puzzle.flat())
+  const flatPuzzle = puzzle.flat()
 
-  for (let singleCell of cells) {
-    const row = Number(singleCell.dataset.row);
+  cells.forEach((singleCell, index)=>{
+const row = Number(singleCell.dataset.row);
     const col = Number(singleCell.dataset.col);
 
     const answer = solution[col][row];
 
-    if (singleCell.textContent === "") {
-      continue; // skip empty cells
+    if (singleCell.textContent === "" || flatPuzzle[index]) {return
     }
     // this checks if the cell answer is same to the solution
     if (Number(singleCell.textContent) === answer) {
@@ -122,5 +124,6 @@ function checkPuzzle() {
         singleCell.classList.remove("correct")
       singleCell.classList.add("invalid");
     }
-  }
+  })
+
 }
