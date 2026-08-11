@@ -134,6 +134,11 @@ input.cell::selection {
   color: #c62828;
 }
 
+.cell.correct {
+  background-color: #e3f7e3;
+  color: #28c63d;
+}
+
 .cell:not(.given):hover {
   background-color: #f0f6ff;
   cursor: pointer;
