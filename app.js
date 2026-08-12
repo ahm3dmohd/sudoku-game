@@ -1,28 +1,82 @@
 // 0 means empty
 
-const puzzle = [
-  [5, 3, 0, 0, 7, 0, 0, 0, 0],
-  [6, 0, 0, 1, 9, 5, 0, 0, 0],
-  [0, 9, 8, 0, 0, 0, 0, 6, 0],
-  [8, 0, 0, 0, 6, 0, 0, 0, 3],
-  [4, 0, 0, 8, 0, 3, 0, 0, 1],
-  [7, 0, 0, 0, 2, 0, 0, 0, 6],
-  [0, 6, 0, 0, 0, 0, 2, 8, 0],
-  [0, 0, 0, 4, 1, 9, 0, 0, 5],
-  [0, 0, 0, 0, 8, 0, 0, 7, 9],
-];
 
-const solution = [
-  [5, 3, 4, 6, 7, 8, 9, 1, 2],
-  [6, 7, 2, 1, 9, 5, 3, 4, 8],
-  [1, 9, 8, 3, 4, 2, 5, 6, 7],
-  [8, 5, 9, 7, 6, 1, 4, 2, 3],
-  [4, 2, 6, 8, 5, 3, 7, 9, 1],
-  [7, 1, 3, 9, 2, 4, 8, 5, 6],
-  [9, 6, 1, 5, 3, 7, 2, 8, 4],
-  [2, 8, 7, 4, 1, 9, 6, 3, 5],
-  [3, 4, 5, 2, 8, 6, 1, 7, 9],
-];
+let puzzles = [
+    {
+        puzzle: [
+            [5, 3, 0, 0, 7, 0, 0, 0, 0],
+            [6, 0, 0, 1, 9, 5, 0, 0, 0],
+            [0, 9, 8, 0, 0, 0, 0, 6, 0],
+            [8, 0, 0, 0, 6, 0, 0, 0, 3],
+            [4, 0, 0, 8, 0, 3, 0, 0, 1],
+            [7, 0, 0, 0, 2, 0, 0, 0, 6],
+            [0, 6, 0, 0, 0, 0, 2, 8, 0],
+            [0, 0, 0, 4, 1, 9, 0, 0, 5],
+            [0, 0, 0, 0, 8, 0, 0, 7, 9],
+        ],
+        solution: [
+            [5, 3, 4, 6, 7, 8, 9, 1, 2],
+            [6, 7, 2, 1, 9, 5, 3, 4, 8],
+            [1, 9, 8, 3, 4, 2, 5, 6, 7],
+            [8, 5, 9, 7, 6, 1, 4, 2, 3],
+            [4, 2, 6, 8, 5, 3, 7, 9, 1],
+            [7, 1, 3, 9, 2, 4, 8, 5, 6],
+            [9, 6, 1, 5, 3, 7, 2, 8, 4],
+            [2, 8, 7, 4, 1, 9, 6, 3, 5],
+            [3, 4, 5, 2, 8, 6, 1, 7, 9],
+        ]
+    }, {
+        puzzle: [
+  [0, 8, 3, 0, 0, 7, 0, 6, 0],
+  [9, 1, 0, 0, 0, 2, 7, 4, 0],
+  [2, 0, 7, 1, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 3, 0],
+  [6, 5, 2, 8, 0, 0, 0, 7, 0],
+  [0, 0, 4, 0, 0, 0, 5, 0, 0],
+  [0, 0, 1, 0, 0, 6, 0, 0, 7],
+  [8, 4, 0, 7, 0, 0, 3, 0, 0],
+  [7, 2, 9, 0, 0, 0, 0, 0, 6],
+],
+solution: [
+  [4, 8, 3, 9, 5, 7, 2, 6, 1],
+  [9, 1, 5, 3, 6, 2, 7, 4, 8],
+  [2, 6, 7, 1, 8, 4, 9, 5, 3],
+  [1, 9, 8, 4, 7, 5, 6, 3, 2],
+  [6, 5, 2, 8, 9, 3, 1, 7, 4],
+  [3, 7, 4, 6, 2, 1, 5, 8, 9],
+  [5, 3, 1, 2, 4, 6, 8, 9, 7],
+  [8, 4, 6, 7, 1, 9, 3, 2, 5],
+  [7, 2, 9, 5, 3, 8, 4, 1, 6],
+],
+    } , {
+        puzzle: [
+  [9, 4, 0, 1, 6, 8, 0, 0, 0],
+  [7, 5, 0, 2, 3, 0, 0, 6, 9],
+  [2, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 7, 0, 0, 0, 0, 6],
+  [3, 0, 7, 4, 9, 0, 5, 0, 0],
+  [8, 2, 4, 3, 5, 6, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 9, 0, 0, 1, 0, 0, 0, 0],
+  [0, 7, 0, 0, 0, 9, 6, 0, 0],
+],
+solution: [
+  [9, 4, 3, 1, 6, 8, 2, 5, 7],
+  [7, 5, 1, 2, 3, 4, 8, 6, 9],
+  [2, 8, 6, 9, 7, 5, 4, 1, 3],
+  [5, 1, 9, 7, 8, 2, 3, 4, 6],
+  [3, 6, 7, 4, 9, 1, 5, 2, 8],
+  [8, 2, 4, 3, 5, 6, 9, 7, 1],
+  [6, 3, 5, 8, 2, 7, 1, 9, 4],
+  [4, 9, 2, 6, 1, 3, 7, 8, 5],
+  [1, 7, 8, 5, 4, 9, 6, 3, 2],
+],
+    }
+]
+
+let puzzle;
+let solution;
+
 const checkBtn = document.getElementById("check-btn");
 
 const board = document.getElementById("board");
@@ -33,6 +87,9 @@ let selectedCell = null;
 
 const resetBtn = document.getElementById("reset-btn");
 
+const newGameBtn = document.getElementById("new-game-btn")
+
+let gameInProgress = false;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 numberPad.addEventListener("click", (event) => {
@@ -57,6 +114,10 @@ checkBtn.addEventListener("click", () => {
 
 resetBtn.addEventListener("click", () => {
     resetPuzzle()
+})
+
+newGameBtn.addEventListener("click", () => {
+    newGame()
 })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,18 +164,18 @@ function selectCell(cell) {
   selectedCell.classList.add("selected");
 }
 
-renderBoard();
+
 
 function checkPuzzle() {
   const cells = board.querySelectorAll(".cell");
-  console.log("Check Puzzle")
+  console.log("Check Puzzle pressed")
   const flatPuzzle = puzzle.flat()
 
   cells.forEach((singleCell, index)=>{
 const row = Number(singleCell.dataset.row);
     const col = Number(singleCell.dataset.col);
 
-    const answer = solution[col][row];
+    const answer = solution[row][col];
 
     if (singleCell.textContent === "" || flatPuzzle[index]) {return
     }
@@ -133,7 +194,7 @@ const row = Number(singleCell.dataset.row);
 
 function resetPuzzle() {
     const cells = board.querySelectorAll(".cell")
-    console.log("Reset Puzzle")
+    console.log("Reset Puzzle pressed")
 
     for (const singleCell of cells) {
         if (!singleCell.classList.contains("given")) {
@@ -142,6 +203,27 @@ function resetPuzzle() {
             singleCell.classList.remove("invalid")
     }
 }
+}
+
+function newGame() {
+    console.log("New game pressed")
+    const randomIndex = Math.floor(Math.random() * puzzles.length)
+    if (!gameInProgress) {
+        puzzle = puzzles[randomIndex].puzzle
+        solution = puzzles[randomIndex].solution
+        renderBoard()
+        gameInProgress = true;
+    }
+
+    else {
+        const wantsNewGame = confirm("Game is already in progress are you sure you want a new game?")
+
+        if (wantsNewGame) {
+            puzzle = puzzles[randomIndex].puzzle
+            solution = puzzles[randomIndex].solution
+            renderBoard()
+        }
+    }
 }
 
 
