@@ -31,6 +31,8 @@ const numberPad = document.getElementById("number-pad");
 
 let selectedCell = null;
 
+const resetBtn = document.getElementById("reset-btn");
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 numberPad.addEventListener("click", (event) => {
@@ -53,6 +55,9 @@ checkBtn.addEventListener("click", () => {
     checkPuzzle()
 })
 
+resetBtn.addEventListener("click", () => {
+    resetPuzzle()
+})
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function renderBoard() {
@@ -102,8 +107,7 @@ renderBoard();
 
 function checkPuzzle() {
   const cells = board.querySelectorAll(".cell");
-  console.log(cells)
-  console.log(puzzle.flat())
+  console.log("Check Puzzle")
   const flatPuzzle = puzzle.flat()
 
   cells.forEach((singleCell, index)=>{
@@ -125,5 +129,23 @@ const row = Number(singleCell.dataset.row);
       singleCell.classList.add("invalid");
     }
   })
-
 }
+
+function resetPuzzle() {
+    const cells = board.querySelectorAll(".cell")
+    console.log("Reset Puzzle")
+
+    for (const singleCell of cells) {
+        if (!singleCell.classList.contains("given")) {
+            singleCell.textContent = ""
+            singleCell.classList.remove("correct")
+            singleCell.classList.remove("invalid")
+    }
+}
+}
+
+
+
+
+
+
