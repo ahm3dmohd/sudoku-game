@@ -90,6 +90,16 @@ const resetBtn = document.getElementById("reset-btn");
 const newGameBtn = document.getElementById("new-game-btn")
 
 let gameInProgress = false;
+
+const timer = document.getElementById("timer")
+const tries = document.getElementById("tries")
+
+let triesRemaining = 3;
+let timeRemaining = 180;
+let timeInterval = null;
+
+const statusMessage = document.getElementById("status-message")
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 numberPad.addEventListener("click", (event) => {
@@ -219,12 +229,38 @@ function newGame() {
         const wantsNewGame = confirm("Game is already in progress are you sure you want a new game?")
 
         if (wantsNewGame) {
+        }
             puzzle = puzzles[randomIndex].puzzle
             solution = puzzles[randomIndex].solution
             renderBoard()
         }
-    }
 }
+
+function updateTriesDisplay() {
+    tries.textContent = "Tries Remaining: "+triesRemaining
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeRemaining / 60)
+    const seconds = timeRemaining % 60
+    timer.textContent = minutes + ":" + String(seconds).padStart(2, "0")
+}
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+       timeRemaining--
+       updateTimerDisplay()
+   
+
+    if (timeRemaining <= 0) {
+        clearInterval(timerInterval)
+    }
+     }, 1000)
+
+}
+
+
+
 
 
 

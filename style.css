@@ -41,6 +41,21 @@ main {
   margin-top: 0.25rem;
 }
 
+#timer {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #db1a1a;
+  margin-top: 1rem;
+}
+
+#tries {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #db1a1a;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
 /* ---------- Status message ---------- */
 .game-info {
   min-height: 1.5rem;
