@@ -96,7 +96,7 @@ const tries = document.getElementById("tries")
 
 let triesRemaining = 3;
 let timeRemaining = 180;
-let timeInterval = null;
+let timerInterval = null;
 
 const statusMessage = document.getElementById("status-message")
 
@@ -180,6 +180,8 @@ function checkPuzzle() {
   const cells = board.querySelectorAll(".cell");
   console.log("Check Puzzle pressed")
   const flatPuzzle = puzzle.flat()
+let hasMistake = false
+let isComplete = true
 
   cells.forEach((singleCell, index)=>{
 const row = Number(singleCell.dataset.row);
@@ -187,7 +189,13 @@ const row = Number(singleCell.dataset.row);
 
     const answer = solution[row][col];
 
-    if (singleCell.textContent === "" || flatPuzzle[index]) {return
+    if (flatPuzzle[index]) { 
+        return
+    }
+
+    if (singleCell.textContent === "") {
+        isComplete = false
+        return
     }
     // this checks if the cell answer is same to the solution
     if (Number(singleCell.textContent) === answer) {
@@ -198,8 +206,23 @@ const row = Number(singleCell.dataset.row);
     else {
         singleCell.classList.remove("correct")
       singleCell.classList.add("invalid");
+      isComplete = false
+      hasMistake = true
     }
   })
+
+    if (hasMistake) {
+        triesRemaining--
+        updateTriesDisplay()
+
+        if (triesRemaining <= 0) {
+            endGame(false)
+        }
+    }
+
+    if (isComplete) {
+        endGame(true)
+    }
 }
 
 function resetPuzzle() {
@@ -223,16 +246,28 @@ function newGame() {
         solution = puzzles[randomIndex].solution
         renderBoard()
         gameInProgress = true;
+        timeRemaining = 180;
+        triesRemaining = 3;
+        updateTimerDisplay()
+        updateTriesDisplay()
+        clearInterval(timerInterval)
+        startTimer()
     }
 
     else {
         const wantsNewGame = confirm("Game is already in progress are you sure you want a new game?")
 
         if (wantsNewGame) {
-        }
             puzzle = puzzles[randomIndex].puzzle
             solution = puzzles[randomIndex].solution
             renderBoard()
+            timeRemaining = 180;
+            triesRemaining = 3;
+            updateTimerDisplay()
+            updateTriesDisplay()
+            clearInterval(timerInterval)
+            startTimer()
+        }
         }
 }
 
@@ -253,14 +288,24 @@ function startTimer() {
    
 
     if (timeRemaining <= 0) {
-        clearInterval(timerInterval)
+        endGame(false)
     }
      }, 1000)
-
 }
 
+function endGame(won) {
+    clearInterval(timerInterval)
 
-
+    if (won) {
+            statusMessage.textContent = "You Win!!" 
+            statusMessage.classList.remove("error")
+            statusMessage.classList.add("success")
+    } else {
+            statusMessage.textContent = "You lose.."
+            statusMessage.classList.add("error")
+            statusMessage.classList.remove("success")  
+    }
+}
 
 
 
