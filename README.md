@@ -12,6 +12,8 @@ https://github.com/ahm3dmohd/sudoku-game.git
 
 ## Attributions 
 
+- W3 Schools 
+- Youtube (https://www.youtube.com/watch?v=xpsm3tOLTVE)
 
 ## Technologies Used 
 
@@ -22,5 +24,27 @@ https://github.com/ahm3dmohd/sudoku-game.git
 
 ## Next steps
 
+- Keyboard input instead of just numberpad 
+- Check number conflicts in the came cell block
+- Difficulty levels like easy , medium , hard
+- A pause button so it can stop the time and puzzle
 
+## User Stories 
 
+- As a user I want to select a cell and place a number there using the numberpad.
+- As a user I want the incorrect cells highlighted in red and correct cells in green so I can fix my mistake.
+- As a user I want a reset button so I can reset all my moves without losing the puzzle.
+- As a user I want a new game button so I can start a new game once im done with the old one.
+- As a user I want to have a check moves button so I can know which of my answers are correct and vice versa.
+- As a user I want a timer so the game is more fun and challenging.
+
+## Features 
+
+- Timer 
+- Tries Remaining
+- Numberpad 
+- New game , Reset , Check moves button
+
+## Game Screenshot
+
+![game image](./gameimage.png)
