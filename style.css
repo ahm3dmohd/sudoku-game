@@ -141,7 +141,7 @@ input.cell::selection {
 }
 
 .cell.highlighted {
-  background-color: #eaf2fd;
+  background-color: #a8cbfb;
 }
 
 .cell.invalid {

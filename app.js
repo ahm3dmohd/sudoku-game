@@ -172,8 +172,29 @@ function selectCell(cell) {
 
   selectedCell = cell;
   selectedCell.classList.add("selected");
+
+  const cells = board.querySelectorAll(".cell")
+
+for (const singleCell of cells) {
+    singleCell.classList.remove("highlighted")
 }
 
+if (selectedCell.textContent !== "") {
+  
+  for (const singleCell of cells) {
+    if (singleCell.textContent === selectedCell.textContent) {
+        singleCell.classList.add("highlighted") 
+}
+}
+if (selectedCell.textContent !== "") {
+    for (const singleCell of cells) {
+      if (singleCell.textContent === selectedCell.textContent) {
+          singleCell.classList.add("highlighted")
+        }
+      }
+    }
+  }
+}
 
 
 function checkPuzzle() {
@@ -306,6 +327,8 @@ function endGame(won) {
             statusMessage.classList.remove("success")  
     }
 }
+
+
 
 
 
