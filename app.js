@@ -190,12 +190,11 @@ if (selectedCell.textContent !== "") {
     for (const singleCell of cells) {
       if (singleCell.textContent === selectedCell.textContent) {
           singleCell.classList.add("highlighted")
-        }
+         }
       }
     }
   }
 }
-
 
 function checkPuzzle() {
   const cells = board.querySelectorAll(".cell");
@@ -273,6 +272,9 @@ function newGame() {
         updateTriesDisplay()
         clearInterval(timerInterval)
         startTimer()
+        statusMessage.textContent = ""
+        statusMessage.classList.remove("success")
+        statusMessage.classList.remove("error")
     }
 
     else {
@@ -288,6 +290,9 @@ function newGame() {
             updateTriesDisplay()
             clearInterval(timerInterval)
             startTimer()
+            statusMessage.textContent = ""
+            statusMessage.classList.remove("success")
+            statusMessage.classList.remove("error")
         }
         }
 }
